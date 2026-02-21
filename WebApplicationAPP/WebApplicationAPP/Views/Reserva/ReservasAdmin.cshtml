@@ -1,0 +1,47 @@
+@{
+    ViewData["Title"] = "Reserva Administrativa";
+}
+
+<div class="container">
+    <div class="card">
+        <h1>Reserva Administrativa</h1>
+        <p>Historial de reservas realizadas.</p>
+
+        <form method="get" class="row">
+            <div>
+                <label>Filtrar por IdServicio</label>
+                <input class="form-control" name="idServicio" placeholder="Ej: 3" />
+            </div>
+            <div style="display:flex;align-items:flex-end;">
+                <button class="btn btn-primary">Filtrar</button>
+            </div>
+        </form>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre del asociado</th>
+                    <th>Teléfono</th>
+                    <th>Correo</th>
+                    <th>Identificación</th>
+                    <th>Monto total</th>
+                    <th>Fecha de nacimiento</th>
+                    <th>Fecha de la reserva</th>
+                    <th>Fecha de registro</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Ana Pérez</td>
+                    <td>88889999</td>
+                    <td>ana@email.com</td>
+                    <td>1-2345-6789</td>
+                    <td>₡22 600</td>
+                    <td>2005-08-12</td>
+                    <td>2026-02-20</td>
+                    <td>2026-02-19</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
