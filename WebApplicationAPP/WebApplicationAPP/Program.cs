@@ -26,6 +26,9 @@ builder.Services.AddScoped<PersonaBussiness>();
 //Repositorio
 //CapaBussine
 
+builder.Services.AddScoped<IServicioRepository, ServicioRepository>();
+builder.Services.AddScoped<ServicioBussiness>();
+
 
 var app = builder.Build();
 
