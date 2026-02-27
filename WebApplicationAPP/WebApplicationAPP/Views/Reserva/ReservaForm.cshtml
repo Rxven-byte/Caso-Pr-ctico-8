@@ -1,0 +1,68 @@
+@{
+    ViewData["Title"] = "Realizar Reserva";
+}
+
+<div class="container">
+    <div class="card">
+        <h1>Realizar reserva</h1>
+
+        <form method="post">
+            <div class="row">
+                <div>
+                    <label>NombreDelAsociado</label>
+                    <input class="form-control" required />
+                </div>
+
+                <div>
+                    <label>Identificacion</label>
+                    <input class="form-control" required />
+                </div>
+            </div>
+
+            <div class="row">
+                <div>
+                    <label>Telefono</label>
+                    <input class="form-control" required />
+                </div>
+
+                <div>
+                    <label>Correo</label>
+                    <input class="form-control" required />
+                </div>
+            </div>
+
+            <div class="row">
+                <div>
+                    <label>FechaNacimiento</label>
+                    <input type="date" class="form-control" required />
+                </div>
+
+                <div>
+                    <label>FechaDelServicio</label>
+                    <input type="datetime-local" class="form-control" required />
+                </div>
+            </div>
+
+            <div>
+                <label>Direccion</label>
+                <textarea class="form-control" required></textarea>
+            </div>
+
+            <div class="row">
+                <div>
+                    <label>MontoTotal</label>
+                    <input class="form-control" disabled value="Se calcula automáticamente en backend" />
+                </div>
+
+                <div>
+                    <label>FechaDeRegistro</label>
+                    <input class="form-control" disabled value="Se asigna automáticamente" />
+                </div>
+            </div>
+
+            <br />
+
+            <button class="btn btn-primary">Generar reserva</button>
+        </form>
+    </div>
+</div>
