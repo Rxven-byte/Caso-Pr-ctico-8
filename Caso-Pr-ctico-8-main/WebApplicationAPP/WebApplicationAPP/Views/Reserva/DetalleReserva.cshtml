@@ -1,0 +1,34 @@
+@model WebApplicationAPP.Models.Reserva
+@{
+    ViewData["Title"] = "Detalle Reserva";
+}
+
+<div class="container">
+    <div class="card p-4">
+        <h1>Detalle de reserva #@Model.Id</h1>
+
+        <h3>Datos del asociado</h3>
+        <p><b>Nombre:</b> @Model.NombreDelAsociado</p>
+        <p><b>Teléfono:</b> @Model.Telefono</p>
+        <p><b>Correo:</b> @Model.Correo</p>
+        <p><b>Identificación:</b> @Model.Identificacion</p>
+        <p><b>Fecha de nacimiento:</b> @Model.FechaNacimiento.ToString("yyyy-MM-dd")</p>
+        <p><b>Dirección:</b> @Model.Direccion</p>
+
+        <hr />
+
+        <h3>Datos del servicio</h3>
+        @if (Model.Servicio != null)
+        {
+            <p><b>Servicio:</b> @Model.Servicio.Nombre</p>
+            <p><b>Área:</b> @Model.Servicio.Area_de_servicio</p>
+            <p><b>Encargado:</b> @Model.Servicio.Encargo_del_servicio</p>
+        }
+        <p><b>Monto total:</b> ₡@Model.MontoTotal.ToString("N2")</p>
+        <p><b>Fecha del servicio:</b> @Model.FechaDelServicio.ToString("yyyy-MM-dd")</p>
+        <p><b>Fecha de registro:</b> @Model.FechaDeRegistro.ToString("yyyy-MM-dd")</p>
+
+        <hr />
+        <a class="btn btn-secondary" asp-action="BuscarReserva">Buscar otra reserva</a>
+    </div>
+</div>

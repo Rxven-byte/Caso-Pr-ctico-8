@@ -1,0 +1,47 @@
+@model List<WebApplicationAPP.Models.Servicio>
+@{
+    ViewData["Title"] = "Servicios Disponibles";
+}
+
+<div class="container">
+    <div class="card p-4">
+        <h1>Servicios disponibles</h1>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre del servicio</th>
+                    <th>Área</th>
+                    <th>Encargado</th>
+                    <th>Monto</th>
+                    <th>Sucursal</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Count > 0)
+                {
+                    @foreach (var servicio in Model)
+                    {
+                        <tr>
+                            <td>@servicio.Nombre</td>
+                            <td>@servicio.Area_de_servicio</td>
+                            <td>@servicio.Encargo_del_servicio</td>
+                            <td>₡@servicio.Monto.ToString("N2")</td>
+                            <td>@servicio.Sucursal</td>
+                            <td>
+                                <a class="btn btn-primary" asp-controller="Reserva" asp-action="ReservaForm" asp-route-idServicio="@servicio.Id">Reservar</a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="6" class="text-center">No hay servicios disponibles.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

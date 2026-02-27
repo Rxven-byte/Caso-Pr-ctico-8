@@ -1,0 +1,26 @@
+@{
+    ViewData["Title"] = "Buscar Reserva";
+}
+
+<div class="container">
+    <div class="card p-4">
+        <h1>Buscar reserva</h1>
+
+        <form method="get" asp-action="BuscarReserva" class="row mb-3">
+            <div class="col-auto">
+                <label>IdReserva</label>
+                <input class="form-control" name="idReserva" required />
+            </div>
+            <div class="col-auto" style="display:flex;align-items:flex-end;">
+                <button class="btn btn-primary">Buscar</button>
+            </div>
+        </form>
+
+        @if (ViewBag.Mensaje != null)
+        {
+            <div class="alert alert-warning">
+                @ViewBag.Mensaje
+            </div>
+        }
+    </div>
+</div>

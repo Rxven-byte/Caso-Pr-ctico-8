@@ -1,0 +1,100 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+
+.container { max-width: 1050px; margin: 24px auto; padding: 0 16px; }
+
+.nav {
+  background:#111827;
+  color:#fff;
+  padding:14px 18px;
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+.nav a { color:#fff; text-decoration:none; opacity:.9; }
+.nav a:hover { opacity:1; text-decoration:underline; }
+
+.card {
+  background:#fff;
+  border-radius:14px;
+  padding:18px;
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
+}
+
+.row { display:flex; gap:12px; flex-wrap:wrap; }
+.row > * { flex:1; min-width:220px; }
+
+label { display:block; margin:10px 0 6px; font-size:13px; color:#374151; }
+
+.input, select, textarea {
+  width:100%;
+  padding:10px;
+  border:1px solid #d1d5db;
+  border-radius:10px;
+}
+textarea { min-height: 90px; }
+
+.table { width:100%; border-collapse:collapse; margin-top: 14px; }
+.table th, .table td {
+  padding:10px;
+  border-bottom:1px solid #e5e7eb;
+  text-align:left;
+  vertical-align:top;
+}
+.table th { color:#374151; font-size:13px; }
+
+.actions { display:flex; gap:8px; flex-wrap:wrap; }
+
+.btn {
+  padding:9px 12px;
+  border-radius:10px;
+  border:0;
+  cursor:pointer;
+  text-decoration:none;
+  display:inline-block;
+}
+.btn-primary { background:#2563eb; color:#fff; }
+.btn-gray { background:#e5e7eb; color:#111827; }
+.btn-outline { background:#fff; color:#111827; border:1px solid #d1d5db; }
+.btn-danger { background:#dc2626; color:#fff; }
+
+.badge {
+  display:inline-block;
+  padding:4px 10px;
+  border-radius:999px;
+  background:#e5e7eb;
+  font-size:12px;
+}
+
+.alert {
+  padding:12px;
+  border-radius:12px;
+  background:#fff7ed;
+  border:1px solid #fed7aa;
+  color:#9a3412;
+  margin-top:14px;
+}
+
+small { color:#6b7280; }
+hr { border:0; border-top:1px solid #e5e7eb; margin:16px 0; }

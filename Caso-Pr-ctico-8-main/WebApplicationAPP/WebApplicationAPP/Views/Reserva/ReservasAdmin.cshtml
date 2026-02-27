@@ -1,0 +1,60 @@
+@model List<WebApplicationAPP.Models.Reserva>
+@{
+    ViewData["Title"] = "Reserva Administrativa";
+}
+
+<div class="container">
+    <div class="card p-4">
+        <h1>Reserva Administrativa</h1>
+        <p>Historial de reservas realizadas.</p>
+
+        <form method="get" asp-action="ReservasAdmin" class="row mb-3">
+            <div class="col-auto">
+                <label>Filtrar por IdServicio</label>
+                <input class="form-control" name="idServicio" placeholder="Ej: 3" value="@ViewBag.FiltroIdServicio" />
+            </div>
+            <div class="col-auto" style="display:flex;align-items:flex-end;">
+                <button class="btn btn-primary">Filtrar</button>
+            </div>
+        </form>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre del asociado</th>
+                    <th>Teléfono</th>
+                    <th>Correo</th>
+                    <th>Identificación</th>
+                    <th>Monto total</th>
+                    <th>Fecha de nacimiento</th>
+                    <th>Fecha de la reserva</th>
+                    <th>Fecha de registro</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Count > 0)
+                {
+                    @foreach (var reserva in Model)
+                    {
+                        <tr>
+                            <td>@reserva.NombreDelAsociado</td>
+                            <td>@reserva.Telefono</td>
+                            <td>@reserva.Correo</td>
+                            <td>@reserva.Identificacion</td>
+                            <td>₡@reserva.MontoTotal.ToString("N2")</td>
+                            <td>@reserva.FechaNacimiento.ToString("yyyy-MM-dd")</td>
+                            <td>@reserva.FechaDelServicio.ToString("yyyy-MM-dd")</td>
+                            <td>@reserva.FechaDeRegistro.ToString("yyyy-MM-dd")</td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="8" class="text-center">No se encontraron reservas.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

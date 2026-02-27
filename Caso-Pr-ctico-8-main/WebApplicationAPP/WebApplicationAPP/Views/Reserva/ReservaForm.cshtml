@@ -1,0 +1,94 @@
+@model WebApplicationAPP.Models.Reserva
+@{
+    ViewData["Title"] = "Realizar Reserva";
+    var servicio = ViewBag.Servicio as WebApplicationAPP.Models.Servicio;
+}
+
+<div class="container">
+    <div class="card p-4">
+        <h1>Realizar reserva</h1>
+
+        @if (servicio != null)
+        {
+            <div class="alert alert-info">
+                <b>Servicio:</b> @servicio.Nombre |  
+                <b>Monto:</b> ₡@servicio.Monto.ToString("N2") |  
+                <b>IVA:</b> @servicio.IVA% |  
+                <b>Encargado:</b> @servicio.Encargo_del_servicio
+            </div>
+        }
+
+        <form method="post" asp-action="ReservaForm">
+            <input type="hidden" name="IdServicio" value="@servicio?.Id" />
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label>Nombre del asociado</label>
+                    <input class="form-control" name="NombreDelAsociado" asp-for="NombreDelAsociado" required maxlength="150" />
+                    <span asp-validation-for="NombreDelAsociado" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label>Identificación</label>
+                    <input class="form-control" name="Identificacion" asp-for="Identificacion" required maxlength="30" />
+                    <span asp-validation-for="Identificacion" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label>Teléfono</label>
+                    <input class="form-control" name="Telefono" asp-for="Telefono" required maxlength="10" />
+                    <span asp-validation-for="Telefono" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label>Correo</label>
+                    <input class="form-control" name="Correo" asp-for="Correo" required maxlength="50" type="email" />
+                    <span asp-validation-for="Correo" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label>Fecha de nacimiento</label>
+                    <input type="date" class="form-control" name="FechaNacimiento" asp-for="FechaNacimiento" required />
+                    <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label>Fecha del servicio</label>
+                    <input type="datetime-local" class="form-control" name="FechaDelServicio" asp-for="FechaDelServicio" required />
+                    <span asp-validation-for="FechaDelServicio" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label>Dirección</label>
+                <textarea class="form-control" name="Direccion" asp-for="Direccion" required maxlength="200"></textarea>
+                <span asp-validation-for="Direccion" class="text-danger"></span>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label>Monto total</label>
+                    <input class="form-control" disabled value="Se calcula automáticamente (Monto + IVA)" />
+                </div>
+
+                <div class="col-md-6">
+                    <label>Fecha de registro</label>
+                    <input class="form-control" disabled value="Se asigna automáticamente" />
+                </div>
+            </div>
+
+            <br />
+
+            <button class="btn btn-primary">Generar reserva</button>
+            <a class="btn btn-secondary" asp-controller="Servicio" asp-action="ServiciosDisponibles">Cancelar</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
